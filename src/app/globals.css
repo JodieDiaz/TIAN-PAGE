@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -9,8 +12,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #0a0a0a;
   }
 }
 
@@ -18,4 +21,231 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+/* Navbar fijo que se superpone al hero */
+header nav {
+  position: fixed; /* Hace que el navbar se quede fijo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Asegura que el navbar esté por encima del hero */
+}
+
+/* Asegura que el video ocupa toda la pantalla */
+.video-carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Los videos se ajustan a todo el contenedor */
+.video-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Coloca el video detrás del texto */
+}
+
+/* Estilo para los botones de navegación de Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+}
+
+/* Estilo del texto sobre el video */
+.video-carousel .swiper-slide div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  z-index: 2; /* Asegura que el texto esté por encima del video */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #eafffe; /* Cambia el color de las flechas */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ff6f00; /* Cambia el color de las flechas al hacer hover */
+}
+
+.focus-bottom {
+  object-position: bottom; /* Esto enfocará la parte inferior del video */
+}
+
+/* Nuevos estilos para la sección Awareness */
+/* Nuevos estilos para la sección Awareness */
+.awareness {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 50px 20px;
+  background-color: #f7f7f7; /* Fondo gris claro para resaltar */
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Agrega sombra sutil */
+  margin: 50px 0;
+  text-align: center; /* Centra todo el contenido */
+}
+
+.textContent {
+  max-width: 600px;
+  font-size: 16px; /* Hacemos el texto más pequeño */
+  line-height: 1.8;
+  color: #333333;
+  text-align: left;
+  margin: 0 auto; /* Centra el texto dentro de su contenedor */
+}
+
+.textContent h2 {
+  font-size: 36px; /* Aumentamos el tamaño del título */
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.textContent p {
+  margin-bottom: 20px; 
+  color: #666666;
+}
+
+.textContent strong {
+  font-weight: 700;
+}
+
+.imageContainer {
+  flex-shrink: 0;
+  max-width: 700px; /* Hacemos la imagen más grande */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra de la imagen */
+}
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .awareness {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .imageContainer {
+    max-width: 100%;
+  }
+}
+
+
+.our-services {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 2.5rem; /* Título más grande para destacar */
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 600;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service {
+  width: 45%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.service h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.service-image-container {
+  width: 170px; /* Tamaño fijo para que ambas imágenes tengan el mismo tamaño */
+  height: 170px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  background-color: #f1f1f1; /* Color de fondo en caso de que la imagen no cubra el área */
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen se ajuste al círculo */
+}
+
+.read-more {
+  color: #4c00ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.cta-container {
+  margin-top: 30px;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: #FFB88C;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #19bbb6;
+}
+
